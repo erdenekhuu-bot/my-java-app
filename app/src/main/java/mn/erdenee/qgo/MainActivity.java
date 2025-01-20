@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.os.Handler;
 
+import mn.erdenee.qgo.ui.login.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
     private static final int SPLASH_SCREEN_TIME_OUT = 2000;
     @Override
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
             }
