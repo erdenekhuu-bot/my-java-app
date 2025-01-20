@@ -2,4 +2,5 @@
     <string name="app_name">qgo</string>
     <string name="home">Home page</string>
     <string name="splash">Splash page</string>
+    <string name="todo">TODO</string>
 </resources>

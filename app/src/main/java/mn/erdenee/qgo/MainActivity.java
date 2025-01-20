@@ -9,7 +9,6 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SPLASH_SCREEN_TIME_OUT = 2000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
