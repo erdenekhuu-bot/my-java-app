@@ -14,4 +14,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="signin">Нэвтрэх</string>
+    <string name="or">эсвэл</string>
+    <string name="register">Бүртгүүлэх</string>
+    <string name="phone">Утасны дугаар</string>
 </resources>
