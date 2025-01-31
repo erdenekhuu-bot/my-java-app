@@ -1,1 +1,1 @@
-build from figma on native java language
+build from figma on native java language without responsive, Only funny time.
