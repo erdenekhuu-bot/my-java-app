@@ -1,4 +1,4 @@
-package mn.erdenee.qgo;
+package mn.erdenee.myjava;
 
 import org.junit.Test;
 

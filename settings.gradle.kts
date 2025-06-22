@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "qgo"
+rootProject.name = "My Java"
 include(":app")
  
