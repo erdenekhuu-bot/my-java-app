@@ -8,4 +8,5 @@
     <string name="loginbtn">Нэвтрэх</string>
     <string name="or">эсвэл</string>
     <string name="register">Бүртгүүлэх</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
