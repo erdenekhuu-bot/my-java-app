@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import mn.erdenee.myjava.databinding.ActivityMainBinding;
+import mn.erdenee.myjava.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,9 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        Toast.makeText(MainActivity.this, "Button Clicked && page switched page2", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

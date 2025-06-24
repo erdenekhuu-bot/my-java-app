@@ -2,4 +2,10 @@
     <string name="app_name">My Java</string>
     <string name="btn">Button</string>
     <string name="splash">Splash Activity</string>
+    <string name="login">НЭВТРЭХ</string>
+    <string name="feedback">Та өөрийн бүртгэлээр нэвтэрнэ үү</string>
+    <string name="phonenumber">Утасны дугаар</string>
+    <string name="loginbtn">Нэвтрэх</string>
+    <string name="or">эсвэл</string>
+    <string name="register">Бүртгүүлэх</string>
 </resources>
