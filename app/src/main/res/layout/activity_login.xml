@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:text="@string/loginbtn"
-            android:background="@color/F182247"
+            android:background="@drawable/roundstyle"
             />
 
         <View
