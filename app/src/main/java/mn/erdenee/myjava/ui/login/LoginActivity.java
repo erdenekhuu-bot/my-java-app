@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import mn.erdenee.myjava.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
-
     private ActivityLoginBinding binding;
 
     @Override
