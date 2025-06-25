@@ -6,86 +6,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity"
-    android:paddingRight="30sp"
-    android:paddingLeft="30sp"
-    android:paddingTop="30sp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="24dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/titleLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="@string/login"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+    <TextView
+        android:id="@+id/feedbackText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/feedback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLogin" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            />
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="@string/phonenumber"
+        android:background="@color/F8F9FA"
+        android:hint="@string/phonenumber"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feedbackText" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/feedback"
-            android:layout_marginBottom="20sp"
-            />
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/roundstyle"
+        android:text="@string/loginbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editPhone" />
 
-       <EditText
-           android:layout_width="match_parent"
-           android:layout_height="60sp"
-           android:autofillHints="@string/phonenumber"
-           android:background="@color/F8F9FA"
-           android:inputType="numberDecimal"
-           tools:ignore="LabelFor" />
+    <TextView
+        android:id="@+id/orText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30sp"/>
-        
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:text="@string/loginbtn"
-            android:background="@drawable/roundstyle"
-            />
+    <TextView
+        android:id="@+id/registerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"
+        android:textColor="@color/F182247"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orText" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/or"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/F182247"
-            android:text="@string/register"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20sp"/>
-
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/car"
-            android:importantForAccessibility="no" />
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/footerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/car"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
