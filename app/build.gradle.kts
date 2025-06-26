@@ -47,4 +47,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("com.google.android.gms:play-services-maps:18.0.2")
 }
