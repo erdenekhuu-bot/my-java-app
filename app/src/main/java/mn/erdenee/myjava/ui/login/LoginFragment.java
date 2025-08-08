@@ -1,19 +1,17 @@
 package mn.erdenee.myjava.ui.login;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import mn.erdenee.myjava.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
+ *
  */
 public class LoginFragment extends Fragment {
 
@@ -25,10 +23,6 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -46,6 +40,10 @@ public class LoginFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public LoginFragment() {
+        // Required empty public constructor
     }
 
     @Override
