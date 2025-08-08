@@ -1,15 +1,10 @@
 package mn.erdenee.myjava;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import mn.erdenee.myjava.databinding.ActivityMainBinding;
-import mn.erdenee.myjava.ui.login.LoginActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     @Override
@@ -17,15 +12,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.button.setOnClickListener(this);
-
-    }
-    
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-
     }
 
     @Override
