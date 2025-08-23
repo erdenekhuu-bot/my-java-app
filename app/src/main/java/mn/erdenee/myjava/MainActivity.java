@@ -2,20 +2,19 @@ package mn.erdenee.myjava;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import mn.erdenee.myjava.databinding.ActivityMainBinding;
+
+import mn.erdenee.myjava.screen.register.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-    }
+        setContentView(R.layout.activity_main);
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        binding = null;
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_container, new LoginFragment())
+                .commit();
     }
 }

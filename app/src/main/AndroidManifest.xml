@@ -21,7 +21,7 @@
             android:value="AIzaSyDeRsKB--iRGpTPMV40HKCLSFVXFRKSKac" />
 
         <activity
-            android:name=".ui.map.MapsActivity"
+            android:name=".screen.map.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity

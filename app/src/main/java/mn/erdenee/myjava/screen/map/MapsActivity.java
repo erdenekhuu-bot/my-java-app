@@ -1,4 +1,4 @@
-package mn.erdenee.myjava.ui.map;
+package mn.erdenee.myjava.screen.map;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -41,4 +41,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+}
+
 }
