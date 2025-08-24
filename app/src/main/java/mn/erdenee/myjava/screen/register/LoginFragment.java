@@ -1,6 +1,5 @@
 package mn.erdenee.myjava.screen.register;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import mn.erdenee.myjava.databinding.FragmentLoginBinding;
-import mn.erdenee.myjava.screen.map.MapsActivity;
 import mn.erdenee.myjava.R;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
