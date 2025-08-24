@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "538596140888",
+    "project_id": "carcare-b8227",
+    "storage_bucket": "carcare-b8227.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538596140888:android:954519e4b1797e8322272d",
+        "android_client_info": {
+          "package_name": "mn.carcare.carcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6PtQxwcAwlNOOCqZ4PEcbVZ3QbMLrdaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538596140888:android:17e30ddce8343e3a22272d",
+        "android_client_info": {
+          "package_name": "mn.erdenee.myjava"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6PtQxwcAwlNOOCqZ4PEcbVZ3QbMLrdaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

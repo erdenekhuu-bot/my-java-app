@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="mn.erdenee.myjava" />
+                  <option name="mobileSdkAppId" value="1:538596140888:android:17e30ddce8343e3a22272d" />
+                  <option name="projectId" value="carcare-b8227" />
+                  <option name="projectNumber" value="538596140888" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
