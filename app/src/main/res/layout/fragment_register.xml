@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingVertical="150dp"
     android:paddingHorizontal="40dp"
     tools:context=".screen.register.RegisterFragment">
@@ -47,8 +48,11 @@
             android:layout_height="20dp"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            app:backgroundTint="@color/F182247"
+            android:background="@drawable/custom_button"
             android:text="Үргэлжлүүлэх"
             android:textSize="18dp"/>
 
@@ -87,6 +91,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
                 android:layout_marginHorizontal="2dp"
+                android:textStyle="bold"
+                android:textColor="@color/F182247"
                 android:text="Нэвтрэх"/>
 
 

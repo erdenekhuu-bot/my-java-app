@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import mn.erdenee.myjava.R;
 import mn.erdenee.myjava.databinding.FragmentRegisterBinding;
-import mn.erdenee.myjava.screen.register.LoginFragment;
 
 public class RegisterFragment extends Fragment implements View.OnClickListener {
 
@@ -29,6 +28,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
         binding.loginbtn.setOnClickListener(this);
+        binding.checkout.setOnClickListener(this);
         return binding.getRoot();
     }
 
@@ -39,6 +39,13 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             LoginFragment loginFragment = new LoginFragment();
             fragmentTransaction.replace(R.id.main_container, loginFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        } else if(v.getId()==R.id.checkout){
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            OTPFragment otpFragment = new OTPFragment();
+            fragmentTransaction.replace(R.id.main_container, otpFragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
