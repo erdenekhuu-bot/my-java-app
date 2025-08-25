@@ -1,1 +1,1 @@
-I decided from scratch make android development, This is my first java app, If you see this, please ignore lazy some codes, cause may has. And sorry my bad english 
+I decided from scratch make android development, This is my first java app, If you see this, please ignore lazy some codes, cause may has. And sorry my bad english. I don't know what purpose, just i love make app on native language. that's enough
