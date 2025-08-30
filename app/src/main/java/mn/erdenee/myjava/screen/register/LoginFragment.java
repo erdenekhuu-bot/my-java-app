@@ -4,24 +4,20 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import mn.erdenee.myjava.databinding.FragmentLoginBinding;
 import mn.erdenee.myjava.R;
+import mn.erdenee.myjava.screen.map.MapsFragment;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private FragmentLoginBinding binding;
-
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +33,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentLoginBinding.bind(view);
+        binding.enter.setOnClickListener(this);
         binding.signupbtn.setOnClickListener(this);
     }
 
@@ -48,16 +45,19 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v){
+
         if (v.getId() == R.id.signupbtn) {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            RegisterFragment registerFragment = new RegisterFragment();
-            fragmentTransaction.replace(R.id.main_container, registerFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, new RegisterFragment())
+                    .addToBackStack(null)
+                    .commit();
+        } else if(v.getId()==R.id.enter){
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, new MapsFragment())
+                    .addToBackStack(null)
+                    .commit();
+
         }
-
-
     }
 
 }

@@ -1,19 +1,14 @@
 package mn.erdenee.myjava;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.appdistribution.FirebaseAppDistribution;
 import com.google.firebase.appdistribution.InterruptionLevel;
-
-import mn.erdenee.myjava.screen.map.MapsActivity;
 import mn.erdenee.myjava.screen.register.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAppDistribution firebaseAppDistribution =
-            FirebaseAppDistribution.getInstance();
+    FirebaseAppDistribution firebaseAppDistribution = FirebaseAppDistribution.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

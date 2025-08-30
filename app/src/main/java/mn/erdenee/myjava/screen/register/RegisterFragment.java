@@ -44,10 +44,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         } else if(v.getId()==R.id.checkout){
             FragmentManager fragmentManager = getParentFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            OTPFragment otpFragment = new OTPFragment();
-            fragmentTransaction.replace(R.id.main_container, otpFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+//            OTPFragment otpFragment = new OTPFragment();
+//            fragmentTransaction.replace(R.id.main_container, otpFragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
         }
     }
 
