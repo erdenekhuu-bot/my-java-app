@@ -3,9 +3,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -15,7 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import mn.erdenee.myjava.R;
 import mn.erdenee.myjava.databinding.FragmentMapsBinding;
 
-public class MapsFragment extends Fragment implements OnMapReadyCallback {
+public class MapsFragment extends Fragment implements OnMapReadyCallback, View.OnClickListener {
 
     private FragmentMapsBinding binding;
     @Override
@@ -39,12 +42,26 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.buttonCenterMap.setOnClickListener(this);
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapfrags);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
     }
+
+    @Override
+    public void onClick(View v){
+        if (v.getId() == R.id.buttonCenterMap) {
+//            getParentFragmentManager().beginTransaction()
+//                    .replace(R.id.main_container, new MapsFragment())
+//                    .addToBackStack(null)
+//                    .commit();
+        }
+    }
+
+
 
     @Override
     public void onDestroyView(){
