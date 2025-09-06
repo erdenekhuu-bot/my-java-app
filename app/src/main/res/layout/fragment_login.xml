@@ -36,6 +36,7 @@
             android:layout_height="10dp"/>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userphone"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="number"
