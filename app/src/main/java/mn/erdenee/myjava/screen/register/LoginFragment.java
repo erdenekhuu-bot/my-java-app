@@ -47,7 +47,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Cal
         super.onDestroyView();
         binding = null;
     }
-
     private void loginUser(){
         String phone=binding.userphone.getText().toString().trim();
         String usertype="PASSENGER".trim();
