@@ -1,105 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingVertical="150dp"
-    android:paddingHorizontal="40dp"
     tools:context=".screen.register.RegisterFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="184dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/RegisterTitle"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="@string/signup"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/topGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/feedbackText"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/description"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="10sp"
+        app:layout_constraintTop_toBottomOf="@id/RegisterTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/userphone"
+        android:layout_width="0sp"
+        android:layout_height="50sp"
+        android:inputType="number"
+        android:maxLength="8"
+        android:textSize="22sp"
+        android:hint="@string/phonenumber"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/feedbackText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enter"
+        android:layout_width="0sp"
+        android:layout_height="60sp"
+        android:text="@string/continues"
+        android:textSize="18sp"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:backgroundTint="@color/F182247"
+        android:background="@drawable/custom_button"
+        app:layout_constraintTop_toBottomOf="@id/userphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/orText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:textSize="12sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/enter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:id="@+id/signupLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10sp"
+        app:layout_constraintTop_toBottomOf="@id/orText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22dp"
+            android:text="@string/already_exist"
+            android:textSize="14sp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/signupbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:text="Бүртгэл үүсгэх" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_input"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:inputType="number"
-            android:maxLength="8"
-            android:textSize="22dp"
-            android:hint="Утасны дугаар"
-            android:textStyle="bold"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:text="Та манай Үйлчилгээний нөхцөл болон Нууцлалын бодлоготой танилцана уу."/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/checkout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:backgroundTint="@color/F182247"
-            android:background="@drawable/custom_button"
-            android:text="Үргэлжлүүлэх"
-            android:textSize="18dp"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:textAlignment="center"
-            android:text="эсвэл"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:layout_marginHorizontal="2dp"
-                android:text="Та бүртгэлтэй юу?"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/loginbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:layout_marginHorizontal="2dp"
-                android:textStyle="bold"
-                android:textColor="@color/F182247"
-                android:text="Нэвтрэх"/>
-
-
-        </LinearLayout>
-
-
+            android:textColor="@color/F182247"
+            android:layout_marginStart="5sp"/>
     </LinearLayout>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="219dp" />
+
+    <ImageView
+        android:id="@+id/carImage"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:src="@drawable/car"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@id/bottomGuide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
