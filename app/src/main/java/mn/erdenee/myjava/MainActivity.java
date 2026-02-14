@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        firebaseAppDistribution.showFeedbackNotification(
-                R.string.additionalFormText,
-                InterruptionLevel.HIGH);
+//        firebaseAppDistribution.showFeedbackNotification(
+//                R.string.additionalFormText,
+//                InterruptionLevel.HIGH);
 
         getSupportFragmentManager()
                 .beginTransaction()

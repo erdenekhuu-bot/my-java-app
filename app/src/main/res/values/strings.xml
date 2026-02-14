@@ -9,19 +9,12 @@
     <string name="or">эсвэл</string>
     <string name="register">Бүртгүүлэх</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="sign_up">Та бүртгэлгүй юу?</string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signup">Бүртгэл үүсгэх</string>
     <string name="description">Та манай үйлчилгээний нөхцөл болон нууцлалын бодлого-той танилцана уу</string>
     <string name="continues">Үргэлжлүүлэх</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="additionalFormText">Please give us your feedback</string>
+
 </resources>
