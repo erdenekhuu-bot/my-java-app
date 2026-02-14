@@ -1,90 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login_page"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.register.RegisterFragment">
+    tools:context=".screen.register.LoginFragment">
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"/>
+    
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/loginTitle"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="@string/login"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/topGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Feedback text -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/feedbackText"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/feedback"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="10sp"
+        app:layout_constraintTop_toBottomOf="@id/loginTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Phone input -->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/userphone"
+        android:layout_width="0sp"
+        android:layout_height="50sp"
+        android:inputType="number"
+        android:maxLength="8"
+        android:textSize="22sp"
+        android:hint="@string/phonenumber"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/feedbackText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Login button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enter"
+        android:layout_width="0sp"
+        android:layout_height="60sp"
+        android:text="@string/login"
+        android:textSize="18sp"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        app:backgroundTint="@color/F182247"
+        android:background="@drawable/custom_button"
+        app:layout_constraintTop_toBottomOf="@id/userphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- OR text -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/orText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:textSize="12sp"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/enter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Signup row -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="30sp"
-        tools:ignore="UselessParent">
+        android:id="@+id/signupLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10sp"
+        app:layout_constraintTop_toBottomOf="@id/orText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:text="@string/sign_up"
+            android:textSize="14sp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/signupbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Бүртгүүлэх"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:text="@string/login"
-            android:layout_marginVertical="10sp"
-            />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="@string/feedback"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userphone"
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:inputType="number"
-            android:maxLength="8"
-            android:textSize="22sp"
-            android:hint="@string/phonenumber"
-            android:layout_marginVertical="10sp"
-            android:textStyle="bold"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/enter"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:text="@string/login"
-            app:backgroundTint="@color/F182247"
-            android:background="@drawable/custom_button"
-            android:textSize="18sp"/>
-
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textAlignment="center"
-            android:layout_marginVertical="20sp"
-            android:text="@string/or"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:layout_marginHorizontal="2sp"
-                android:text="@string/sign_up"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/signupbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/F182247"
-                android:layout_marginHorizontal="2sp"
-                android:text="Бүртгүүлэх"/>
-
-        </LinearLayout>
-
+            android:textColor="@color/F182247"
+            android:layout_marginStart="5sp"/>
     </LinearLayout>
 
-</FrameLayout>
+    <!-- Bottom car image -->
+    <ImageView
+        android:id="@+id/carImage"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        android:src="@drawable/car"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@id/bottomGuide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
