@@ -34,18 +34,18 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FragmentRegisterBinding.inflate(inflater, container, false);
-        binding.loginbtn.setOnClickListener(this);
-        binding.checkout.setOnClickListener(this);
+//        binding = FragmentRegisterBinding.inflate(inflater, container, false);
+//        binding.loginbtn.setOnClickListener(this);
+//        binding.checkout.setOnClickListener(this);
         return binding.getRoot();
     }
 
     private void registerUser(){
-        String phone=binding.phoneInput.getText().toString().trim();
-        String usertype="PASSENGER".trim();
-        User user = new User(phone, usertype);
-        ApiService api= RetrofitClient.getApiService();
-        api.register(user).enqueue(this);
+//        String phone=binding.phoneInput.getText().toString().trim();
+//        String usertype="PASSENGER".trim();
+//        User user = new User(phone, usertype);
+//        ApiService api= RetrofitClient.getApiService();
+//        api.register(user).enqueue(this);
     }
 
     @Override
@@ -70,17 +70,17 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v){
-        if (v.getId() == R.id.loginbtn) {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            LoginFragment loginFragment = new LoginFragment();
-            fragmentTransaction.replace(R.id.main_container, loginFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
-        } else if(v.getId()==R.id.checkout){
-            registerUser();
-        }
+//        if (v.getId() == R.id.loginbtn) {
+//            FragmentManager fragmentManager = getParentFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            LoginFragment loginFragment = new LoginFragment();
+//            fragmentTransaction.replace(R.id.main_container, loginFragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
+//
+//        } else if(v.getId()==R.id.checkout){
+//            registerUser();
+//        }
     }
 
 

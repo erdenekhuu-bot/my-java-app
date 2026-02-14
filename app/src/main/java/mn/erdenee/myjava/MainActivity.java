@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.appdistribution.FirebaseAppDistribution;
 import com.google.firebase.appdistribution.InterruptionLevel;
 import mn.erdenee.myjava.screen.register.LoginFragment;
+import mn.erdenee.myjava.screen.map.MapsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,9 +19,13 @@ public class MainActivity extends AppCompatActivity {
 //                R.string.additionalFormText,
 //                InterruptionLevel.HIGH);
 
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.main_container, new LoginFragment())
+//                .commit();
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_container, new LoginFragment())
+                .replace(R.id.main_container, new MapsFragment())
                 .commit();
     }
 }
