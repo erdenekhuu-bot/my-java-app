@@ -15,5 +15,6 @@
     <string name="signup">Бүртгэл үүсгэх</string>
     <string name="description">Та манай үйлчилгээний нөхцөл болон нууцлалын бодлого-той танилцана уу</string>
     <string name="continues">Үргэлжлүүлэх</string>
+    <string name="register_success">Таны бүртгэл амжилттай хийгдлээ</string>
 
 </resources>

@@ -9,17 +9,45 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topGuide"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/successimg"
+        android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="@id/topGuide"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/successimg"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_success"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"
+            android:text="@string/login"
+            android:textSize="18sp"
+            android:layout_marginTop="20sp"
+            app:backgroundTint="@color/F182247"
+            android:background="@drawable/custom_button" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
