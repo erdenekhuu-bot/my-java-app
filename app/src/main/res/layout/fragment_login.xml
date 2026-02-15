@@ -15,7 +15,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="184dp" />
 
-
     
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/loginTitle"
