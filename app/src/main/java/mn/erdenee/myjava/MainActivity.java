@@ -2,8 +2,8 @@ package mn.erdenee.myjava;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
 import mn.erdenee.myjava.screen.map.MapsFragment;
-import mn.erdenee.myjava.screen.register.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 

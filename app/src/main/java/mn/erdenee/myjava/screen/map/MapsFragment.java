@@ -18,7 +18,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.bottomsheet.BottomSheetDragHandleView;
 
 import mn.erdenee.myjava.R;
 import mn.erdenee.myjava.databinding.FragmentMapsBinding;
@@ -59,9 +58,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-
     }
-
 
     @Override
     public void onClick(View v){
