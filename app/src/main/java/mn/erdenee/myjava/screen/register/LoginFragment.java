@@ -79,15 +79,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Cal
 
     @Override
     public void onClick(View v){
-
         if (v.getId() == R.id.signupbtn) {
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.main_container, new RegisterFragment())
                     .addToBackStack(null)
                     .commit();
-        } else if(v.getId()==R.id.enter){
-            loginUser();
-
         }
     }
 

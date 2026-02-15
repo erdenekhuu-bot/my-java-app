@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userphone"
+        android:id="@+id/phoneInput"
         android:layout_width="0sp"
         android:layout_height="50sp"
         android:inputType="number"
@@ -65,7 +65,7 @@
         android:layout_marginTop="20sp"
         app:backgroundTint="@color/F182247"
         android:background="@drawable/custom_button"
-        app:layout_constraintTop_toBottomOf="@id/userphone"
+        app:layout_constraintTop_toBottomOf="@id/phoneInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -98,7 +98,7 @@
             android:textSize="14sp"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/signupbtn"
+            android:id="@+id/loginbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"

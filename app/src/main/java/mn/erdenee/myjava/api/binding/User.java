@@ -1,7 +1,11 @@
 package mn.erdenee.myjava.api.binding;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
+    @SerializedName("usertype")
     private String usertype;
+    @SerializedName("phone")
     private String phone;
 
    public User(String phone, String usertype) {
