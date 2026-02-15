@@ -1,7 +1,12 @@
 package mn.erdenee.myjava.screen.map;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import mn.erdenee.myjava.R;
@@ -26,7 +32,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
     private FragmentMapsBinding binding;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private GoogleMap googleMap;
+    private Location currentLocation;
 
+    private final int FINE_PERMISSION_CODE=1;
 
 
     @Override
@@ -79,6 +87,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
         this.googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
         Log.d("TAG", "Сонгосон цэг: " + latLng.latitude + ", " + latLng.longitude);
     }
+
 
 
     @Override
