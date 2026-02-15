@@ -30,6 +30,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap; // Fixed: Assign to field
         LatLng ulaanbaatar = new LatLng(47.921230, 106.918556);
         googleMap.addMarker(new MarkerOptions().position(ulaanbaatar).title("Би энд байна"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ulaanbaatar, 15));
@@ -61,6 +62,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
     }
 
     private void getCurrentLocationAndMoveCamera(){
+        if (googleMap == null) return; // Guard clause
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             fusedLocationProviderClient.getLastLocation()
                     .addOnSuccessListener(requireActivity(), location -> {
@@ -85,14 +87,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
             else {
                 Toast.makeText(getContext(), "Байршил тодорхойлох зөвшөөрөл хэрэгтэй", Toast.LENGTH_LONG).show();
             }
-//            getParentFragmentManager().beginTransaction()
-//                    .replace(R.id.main_container, new MapsFragment())
-//                    .addToBackStack(null)
-//                    .commit();
         }
     }
-
-
 
     @Override
     public void onDestroyView(){
