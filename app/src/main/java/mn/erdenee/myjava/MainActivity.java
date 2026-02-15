@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new LoginFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new MapsFragment()).commit();
     }
 }

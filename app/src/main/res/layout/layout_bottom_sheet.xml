@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/bottomSheetText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello Erdenee"
+        android:textSize="18sp"
+        android:gravity="center" />
+</LinearLayout>

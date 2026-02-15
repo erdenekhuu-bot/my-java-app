@@ -3,9 +3,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDragHandleView;
+
 import mn.erdenee.myjava.R;
 import mn.erdenee.myjava.databinding.FragmentMapsBinding;
 
@@ -27,10 +29,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
     private FusedLocationProviderClient fusedLocationProviderClient;
     private GoogleMap googleMap;
 
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap; // Fixed: Assign to field
+        this.googleMap = googleMap;
         LatLng ulaanbaatar = new LatLng(47.921230, 106.918556);
         googleMap.addMarker(new MarkerOptions().position(ulaanbaatar).title("Би энд байна"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ulaanbaatar, 15));
@@ -61,32 +62,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
 
     }
 
-    private void getCurrentLocationAndMoveCamera(){
-        if (googleMap == null) return; // Guard clause
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            fusedLocationProviderClient.getLastLocation()
-                    .addOnSuccessListener(requireActivity(), location -> {
-                        if (location != null) {
-                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                             googleMap.addMarker(new MarkerOptions().position(latLng).title("Энд..."));
-                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
-                            Toast.makeText(getContext(), "Байршил тодорхойллоо", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
-    }
-
 
     @Override
     public void onClick(View v){
         if (v.getId() == R.id.buttonCenterMap) {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
-                    ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                getCurrentLocationAndMoveCamera();
-            }
-            else {
-                Toast.makeText(getContext(), "Байршил тодорхойлох зөвшөөрөл хэрэгтэй", Toast.LENGTH_LONG).show();
-            }
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
+            View bottomSheetView = getLayoutInflater().inflate(R.layout.layout_bottom_sheet, null);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         }
     }
 
