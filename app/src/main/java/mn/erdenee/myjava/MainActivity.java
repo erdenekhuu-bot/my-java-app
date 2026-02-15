@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import mn.erdenee.myjava.screen.map.MapsFragment;
+import mn.erdenee.myjava.screen.register.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new MapsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new LoginFragment()).commit();
     }
 }
