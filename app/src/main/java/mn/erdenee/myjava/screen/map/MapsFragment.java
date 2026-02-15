@@ -1,7 +1,6 @@
 package mn.erdenee.myjava.screen.map;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,15 +21,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import mn.erdenee.myjava.R;
 import mn.erdenee.myjava.databinding.FragmentMapsBinding;
 
-public class MapsFragment extends Fragment implements OnMapReadyCallback, View.OnClickListener {
+public class MapsFragment extends Fragment implements OnMapReadyCallback, View.OnClickListener, GoogleMap.OnMapClickListener {
 
     private FragmentMapsBinding binding;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private GoogleMap googleMap;
 
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        this.googleMap.setOnMapClickListener(this);
         LatLng ulaanbaatar = new LatLng(47.921230, 106.918556);
         googleMap.addMarker(new MarkerOptions().position(ulaanbaatar).title("Би энд байна"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ulaanbaatar, 15));
@@ -69,6 +71,15 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, View.O
             bottomSheetDialog.show();
         }
     }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        this.googleMap.clear();
+        this.googleMap.addMarker(new MarkerOptions().position(latLng).title("Сонгосон байршил"));
+        this.googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+        Log.d("TAG", "Сонгосон цэг: " + latLng.latitude + ", " + latLng.longitude);
+    }
+
 
     @Override
     public void onDestroyView(){
