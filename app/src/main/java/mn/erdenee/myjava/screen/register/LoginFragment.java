@@ -53,8 +53,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Cal
         User user = new User(phone, usertype);
         ApiService api= RetrofitClient.getApiService();
         api.login(user).enqueue(this);
-
-
     }
 
     @Override
@@ -82,6 +80,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Cal
         if (v.getId() == R.id.signupbtn) {
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.main_container, new RegisterFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }else if(v.getId()==R.id.enter){
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, new MapsFragment())
                     .addToBackStack(null)
                     .commit();
         }
