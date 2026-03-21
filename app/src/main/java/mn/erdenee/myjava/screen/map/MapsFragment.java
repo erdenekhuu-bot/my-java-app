@@ -24,12 +24,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textview.MaterialTextView;
 import mn.erdenee.myjava.StateManagement;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
 import mn.erdenee.myjava.R;
+import mn.erdenee.myjava.api.OSRMApi;
 import mn.erdenee.myjava.databinding.FragmentMapsBinding;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
     private StateManagement state;
@@ -139,20 +144,33 @@ public void onMapClick(LatLng latLng) {
                     .icon(BitmapDescriptorFactory.defaultMarker(markerColor)));
         }
 
+//        if (locations.size() == 2) {
+//            googleMap.addPolyline(new com.google.android.gms.maps.model.PolylineOptions()
+//                    .add(locations.get(0), locations.get(1))
+//                    .width(10)
+//                    .color(android.graphics.Color.BLUE)
+//                    .geodesic(true));
+//
+//            com.google.android.gms.maps.model.LatLngBounds bounds = new com.google.android.gms.maps.model.LatLngBounds.Builder()
+//                    .include(locations.get(0))
+//                    .include(locations.get(1))
+//                    .build();
+//
+//            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 150));
+//        } else {
+//            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+//        }
         if (locations.size() == 2) {
-            googleMap.addPolyline(new com.google.android.gms.maps.model.PolylineOptions()
-                    .add(locations.get(0), locations.get(1))
-                    .width(10)
-                    .color(android.graphics.Color.BLUE)
-                    .geodesic(true));
+            // OSRM-ээс бодит замын өгөгдөл татаж зурах функцийг дуудах
+            getRoute(locations.get(0), locations.get(1));
 
+            // Хоёр цэгийг дэлгэцэнд багтааж харуулах
             com.google.android.gms.maps.model.LatLngBounds bounds = new com.google.android.gms.maps.model.LatLngBounds.Builder()
-                    .include(locations.get(0))
                     .include(locations.get(1))
                     .build();
-
             googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 150));
         } else {
+            // Зөвхөн нэг цэг байгаа бол тухайн цэг рүү камер шилжинэ
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
         }
 
@@ -172,6 +190,85 @@ public void onMapClick(LatLng latLng) {
         Toast.makeText(requireContext(), "Алдаа гарлаа", Toast.LENGTH_SHORT).show();
     }
 }
+
+
+    private void getRoute(LatLng source, LatLng destination) {
+        //1. Координатуудыг OSRM форматад оруулах: longitude,latitude;longitude,latitude
+        String coords = source.longitude + "," + source.latitude + ";" +
+                destination.longitude + "," + destination.latitude;
+
+        // 2. Retrofit тохиргоо (ScalarsConverter ашиглана)
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://router.project-osrm.org/")
+                .addConverterFactory(retrofit2.converter.scalars.ScalarsConverterFactory.create())
+                .build();
+
+        OSRMApi osrmApi = retrofit.create(OSRMApi.class);
+
+        // 3. Хүсэлт илгээх
+        osrmApi.getRoute(coords, "full", "polyline").enqueue(new retrofit2.Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        // JSON-оос "geometry" (Encoded Polyline) утгыг салгаж авах
+                        org.json.JSONObject jsonResponse = new org.json.JSONObject(response.body());
+                        org.json.JSONArray routes = jsonResponse.getJSONArray("routes");
+                        if (routes.length() > 0) {
+                            String encodedPolyline = routes.getJSONObject(0).getString("geometry");
+
+                            // Polyline-ийг Decode хийж газрын зураг дээр зурах
+                            drawPolyline(encodedPolyline);
+                        }
+                    } catch (Exception e) {
+                        Log.e("OSRM", "JSON задлахад алдаа: " + e.getMessage());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.e("OSRM", "Сүлжээний алдаа: " + t.getMessage());
+            }
+        });
+    }
+
+
+    private void drawPolyline(String encoded) {
+        List<LatLng> poly = new ArrayList<>();
+        int index = 0, len = encoded.length();
+        int lat = 0, lng = 0;
+
+        while (index < len) {
+            int b, shift = 0, result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lat += dlat;
+
+            shift = 0; result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lng += dlng;
+
+            poly.add(new LatLng((double) lat / 1E5, (double) lng / 1E5));
+        }
+
+        // Газрын зураг дээр зам татах
+        googleMap.addPolyline(new com.google.android.gms.maps.model.PolylineOptions()
+                .addAll(poly)
+                .width(12)
+                .color(android.graphics.Color.BLUE)
+                .geodesic(true));
+    }
+
 
     @Override
     public void onDestroyView() {
