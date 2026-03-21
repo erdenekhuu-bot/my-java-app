@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/location"
+        android:icon="@drawable/marker"
+        android:title="Байршил"/>
+    <item
+        android:id="@+id/travel"
+        android:icon="@drawable/travel"
+        android:title="Аялал"/>
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/bell"
+        android:title="Мэдэгдэл"/>
+
+
+</menu>
