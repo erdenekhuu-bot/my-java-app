@@ -13,10 +13,30 @@
         android:id="@+id/bottomSheetText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Erdenee"
         android:textSize="18sp"
         android:gravity="center" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginVertical="10sp"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="160sp"
+            android:text="Цуцлах"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="160sp"
+            android:text="Авах"
+            />
+    </LinearLayout>
 
 
 </LinearLayout>
