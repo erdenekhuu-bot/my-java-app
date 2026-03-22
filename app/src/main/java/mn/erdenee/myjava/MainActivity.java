@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//    @Override
+//    protected void onStart(){
+//        super.onStart();
+//        showFragment(new LoginFragment());
+//    }
+
     public void showFragment(Fragment fragment) {
         if (fragment instanceof LoginFragment) {
             binding.bottomNavigation.setVisibility(View.GONE);

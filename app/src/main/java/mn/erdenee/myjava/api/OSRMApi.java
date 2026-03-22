@@ -6,9 +6,9 @@ import retrofit2.http.Query;
 public interface OSRMApi {
     @GET("route/v1/driving/{coords}")
     Call<String> getRoute(
-            @Path("coords") String coords,            // Координатууд
-            @Query("overview") String overview,      // "full" гэж илгээнэ
-            @Query("geometries") String geometries   // "polyline" гэж илгээнэ
+            @Path("coords") String coords,
+            @Query("overview") String overview,
+            @Query("geometries") String geometries
     );
 
 }
